@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bom-kitting-planner"
+version = "0.1.0"
+description = "Deterministic BOM expansion, material availability and purchase requisition planning."
+requires-python = ">=3.11"
+license = "LicenseRef-All-Rights-Reserved"
+license-files = ["LICENSE"]
+authors = [{name = "CaesarWANG54"}]
+dependencies = []
+
+[project.scripts]
+bom-kitting-planner = "bom_kitting_planner.cli:main"
+
+[project.urls]
+Repository = "https://github.com/CaesarWANG54/bom-kitting-planner"
+
+[tool.setuptools.packages.find]
+where = ["src"]

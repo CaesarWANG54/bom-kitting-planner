@@ -1,0 +1,536 @@
+{
+  "_example": {
+    "synthetic": true,
+    "description": "Fictional assembly order; all identities, quantities, prices and approvals are illustrative."
+  },
+  "order": {
+    "order_id": "ORDER-001",
+    "customer_id": "CUSTOMER-001",
+    "order_date": "2026-11-15",
+    "required_delivery_date": "2026-12-01",
+    "warehouse_id": "WAREHOUSE-001",
+    "status": "CONFIRMED",
+    "snapshot_at": "2026-11-16T09:00:00+08:00",
+    "requester_id": "PERSON-BUYER",
+    "currency": "CNY",
+    "lines": [
+      {
+        "line_id": "LINE-001",
+        "product_id": "PRODUCT-A",
+        "ordered_qty": 50,
+        "uom": "PCS",
+        "bom_id": "BOM-PRODUCT-A",
+        "bom_version": "V1"
+      }
+    ]
+  },
+  "materials": [
+    {
+      "material_id": "PRODUCT-A",
+      "material_name": "Standard control unit",
+      "material_type": "FINISHED",
+      "base_uom": "PCS",
+      "criticality": "A",
+      "inspection_class": "A",
+      "active": true
+    },
+    {
+      "material_id": "ASSEMBLY-A",
+      "material_name": "Enclosure assembly",
+      "material_type": "SUBASSEMBLY",
+      "base_uom": "PCS",
+      "criticality": "B",
+      "inspection_class": "B",
+      "active": true
+    },
+    {
+      "material_id": "COMPONENT-HOUSING",
+      "material_name": "Enclosure",
+      "material_type": "PURCHASED",
+      "base_uom": "PCS",
+      "criticality": "B",
+      "inspection_class": "B",
+      "active": true
+    },
+    {
+      "material_id": "COMPONENT-FASTENER",
+      "material_name": "Fastener",
+      "material_type": "PURCHASED",
+      "base_uom": "PCS",
+      "criticality": "C",
+      "inspection_class": "C",
+      "active": true
+    },
+    {
+      "material_id": "COMPONENT-CONTROL",
+      "material_name": "Controller",
+      "material_type": "PURCHASED",
+      "base_uom": "PCS",
+      "criticality": "A",
+      "inspection_class": "A",
+      "active": true
+    },
+    {
+      "material_id": "ALTERNATIVE-CONTROL",
+      "material_name": "Alternative controller",
+      "material_type": "PURCHASED",
+      "base_uom": "PCS",
+      "criticality": "A",
+      "inspection_class": "A",
+      "active": true
+    },
+    {
+      "material_id": "COMPONENT-POWER",
+      "material_name": "Power module",
+      "material_type": "PURCHASED",
+      "base_uom": "PCS",
+      "criticality": "A",
+      "inspection_class": "A",
+      "active": true
+    },
+    {
+      "material_id": "ALTERNATIVE-POWER",
+      "material_name": "Alternative power module",
+      "material_type": "PURCHASED",
+      "base_uom": "PCS",
+      "criticality": "A",
+      "inspection_class": "A",
+      "active": true
+    },
+    {
+      "material_id": "COMPONENT-GASKET",
+      "material_name": "Gasket",
+      "material_type": "PURCHASED",
+      "base_uom": "PCS",
+      "criticality": "B",
+      "inspection_class": "B",
+      "active": true
+    },
+    {
+      "material_id": "COMPONENT-CABLE",
+      "material_name": "Cable",
+      "material_type": "PURCHASED",
+      "base_uom": "PCS",
+      "criticality": "C",
+      "inspection_class": "C",
+      "active": true
+    }
+  ],
+  "bom_items": [
+    {
+      "bom_id": "BOM-PRODUCT-A",
+      "bom_version": "V1",
+      "parent_material_id": "PRODUCT-A",
+      "component_material_id": "ASSEMBLY-A",
+      "qty_per": 1,
+      "scrap_rate": 0.02,
+      "uom": "PCS",
+      "effective_from": "2026-01-01",
+      "effective_to": null,
+      "status": "RELEASED"
+    },
+    {
+      "bom_id": "BOM-ASSEMBLY-A",
+      "bom_version": "V1",
+      "parent_material_id": "ASSEMBLY-A",
+      "component_material_id": "COMPONENT-HOUSING",
+      "qty_per": 1,
+      "scrap_rate": 0.04,
+      "uom": "PCS",
+      "effective_from": "2026-01-01",
+      "effective_to": null,
+      "status": "RELEASED"
+    },
+    {
+      "bom_id": "BOM-ASSEMBLY-A",
+      "bom_version": "V1",
+      "parent_material_id": "ASSEMBLY-A",
+      "component_material_id": "COMPONENT-FASTENER",
+      "qty_per": 4,
+      "scrap_rate": 0,
+      "uom": "PCS",
+      "effective_from": "2026-01-01",
+      "effective_to": null,
+      "status": "RELEASED"
+    },
+    {
+      "bom_id": "BOM-PRODUCT-A",
+      "bom_version": "V1",
+      "parent_material_id": "PRODUCT-A",
+      "component_material_id": "COMPONENT-CONTROL",
+      "qty_per": 1,
+      "scrap_rate": 0.02,
+      "uom": "PCS",
+      "effective_from": "2026-01-01",
+      "effective_to": null,
+      "status": "RELEASED"
+    },
+    {
+      "bom_id": "BOM-PRODUCT-A",
+      "bom_version": "V1",
+      "parent_material_id": "PRODUCT-A",
+      "component_material_id": "COMPONENT-POWER",
+      "qty_per": 1,
+      "scrap_rate": 0,
+      "uom": "PCS",
+      "effective_from": "2026-01-01",
+      "effective_to": null,
+      "status": "RELEASED"
+    },
+    {
+      "bom_id": "BOM-PRODUCT-A",
+      "bom_version": "V1",
+      "parent_material_id": "PRODUCT-A",
+      "component_material_id": "COMPONENT-GASKET",
+      "qty_per": 1,
+      "scrap_rate": 0,
+      "uom": "PCS",
+      "effective_from": "2026-01-01",
+      "effective_to": null,
+      "status": "RELEASED"
+    },
+    {
+      "bom_id": "BOM-PRODUCT-A",
+      "bom_version": "V1",
+      "parent_material_id": "PRODUCT-A",
+      "component_material_id": "COMPONENT-CABLE",
+      "qty_per": 2,
+      "scrap_rate": 0,
+      "uom": "PCS",
+      "effective_from": "2026-01-01",
+      "effective_to": null,
+      "status": "RELEASED"
+    }
+  ],
+  "inventory_positions": [
+    {
+      "material_id": "COMPONENT-HOUSING",
+      "warehouse_id": "WAREHOUSE-001",
+      "lot_scope": "ALL",
+      "on_hand_qty": 70,
+      "frozen_qty": 5,
+      "quality_hold_qty": 5,
+      "allocated_qty": 5,
+      "safety_stock_qty": 5,
+      "snapshot_at": "2026-11-16T09:00:00+08:00"
+    },
+    {
+      "material_id": "COMPONENT-FASTENER",
+      "warehouse_id": "WAREHOUSE-001",
+      "lot_scope": "ALL",
+      "on_hand_qty": 200,
+      "frozen_qty": 20,
+      "quality_hold_qty": 0,
+      "allocated_qty": 20,
+      "safety_stock_qty": 10,
+      "snapshot_at": "2026-11-16T09:00:00+08:00"
+    },
+    {
+      "material_id": "COMPONENT-CONTROL",
+      "warehouse_id": "WAREHOUSE-001",
+      "lot_scope": "ALL",
+      "on_hand_qty": 20,
+      "frozen_qty": 2,
+      "quality_hold_qty": 3,
+      "allocated_qty": 0,
+      "safety_stock_qty": 0,
+      "snapshot_at": "2026-11-16T09:00:00+08:00"
+    },
+    {
+      "material_id": "ALTERNATIVE-CONTROL",
+      "warehouse_id": "WAREHOUSE-001",
+      "lot_scope": "ALL",
+      "on_hand_qty": 40,
+      "frozen_qty": 4,
+      "quality_hold_qty": 0,
+      "allocated_qty": 0,
+      "safety_stock_qty": 0,
+      "snapshot_at": "2026-11-16T09:00:00+08:00"
+    },
+    {
+      "material_id": "COMPONENT-POWER",
+      "warehouse_id": "WAREHOUSE-001",
+      "lot_scope": "ALL",
+      "on_hand_qty": 10,
+      "frozen_qty": 0,
+      "quality_hold_qty": 0,
+      "allocated_qty": 0,
+      "safety_stock_qty": 0,
+      "snapshot_at": "2026-11-16T09:00:00+08:00"
+    },
+    {
+      "material_id": "ALTERNATIVE-POWER",
+      "warehouse_id": "WAREHOUSE-001",
+      "lot_scope": "ALL",
+      "on_hand_qty": 30,
+      "frozen_qty": 0,
+      "quality_hold_qty": 0,
+      "allocated_qty": 0,
+      "safety_stock_qty": 0,
+      "snapshot_at": "2026-11-16T09:00:00+08:00"
+    },
+    {
+      "material_id": "COMPONENT-GASKET",
+      "warehouse_id": "WAREHOUSE-001",
+      "lot_scope": "ALL",
+      "on_hand_qty": 20,
+      "frozen_qty": 0,
+      "quality_hold_qty": 0,
+      "allocated_qty": 0,
+      "safety_stock_qty": 0,
+      "snapshot_at": "2026-11-16T09:00:00+08:00"
+    },
+    {
+      "material_id": "COMPONENT-CABLE",
+      "warehouse_id": "WAREHOUSE-001",
+      "lot_scope": "ALL",
+      "on_hand_qty": 120,
+      "frozen_qty": 0,
+      "quality_hold_qty": 0,
+      "allocated_qty": 10,
+      "safety_stock_qty": 10,
+      "snapshot_at": "2026-11-16T09:00:00+08:00"
+    }
+  ],
+  "inbound_supply": [
+    {
+      "inbound_line_id": "INBOUND-001",
+      "material_id": "COMPONENT-HOUSING",
+      "warehouse_id": "WAREHOUSE-001",
+      "ordered_qty": 5,
+      "received_qty": 0,
+      "cancelled_qty": 0,
+      "expected_arrival_date": "2026-11-20",
+      "status": "CONFIRMED",
+      "external_po_ref": "EXAMPLE-INBOUND-001",
+      "snapshot_at": "2026-11-16T09:00:00+08:00"
+    },
+    {
+      "inbound_line_id": "INBOUND-002",
+      "material_id": "COMPONENT-FASTENER",
+      "warehouse_id": "WAREHOUSE-001",
+      "ordered_qty": 80,
+      "received_qty": 10,
+      "cancelled_qty": 10,
+      "expected_arrival_date": "2026-11-22",
+      "status": "CONFIRMED",
+      "external_po_ref": "EXAMPLE-INBOUND-002",
+      "snapshot_at": "2026-11-16T09:00:00+08:00"
+    },
+    {
+      "inbound_line_id": "INBOUND-003",
+      "material_id": "COMPONENT-POWER",
+      "warehouse_id": "WAREHOUSE-001",
+      "ordered_qty": 20,
+      "received_qty": 0,
+      "cancelled_qty": 0,
+      "expected_arrival_date": "2026-11-30",
+      "status": "CONFIRMED",
+      "external_po_ref": "EXAMPLE-INBOUND-003",
+      "snapshot_at": "2026-11-16T09:00:00+08:00"
+    }
+  ],
+  "substitution_rules": [
+    {
+      "rule_id": "RULE-CONTROL",
+      "source_material_id": "COMPONENT-CONTROL",
+      "substitute_material_id": "ALTERNATIVE-CONTROL",
+      "conversion_factor": 1,
+      "max_share_percent": 100,
+      "applicable_product_ids": [
+        "PRODUCT-A"
+      ],
+      "effective_from": "2026-01-01",
+      "effective_to": "2026-12-31",
+      "priority": 1,
+      "active": true,
+      "required_approval_roles": [
+        "ENGINEERING_APPROVER",
+        "QUALITY_APPROVER"
+      ]
+    },
+    {
+      "rule_id": "RULE-POWER",
+      "source_material_id": "COMPONENT-POWER",
+      "substitute_material_id": "ALTERNATIVE-POWER",
+      "conversion_factor": 1,
+      "max_share_percent": 50,
+      "applicable_product_ids": [
+        "PRODUCT-A"
+      ],
+      "effective_from": "2026-01-01",
+      "effective_to": "2026-12-31",
+      "priority": 1,
+      "active": true,
+      "required_approval_roles": [
+        "ENGINEERING_APPROVER",
+        "QUALITY_APPROVER"
+      ]
+    }
+  ],
+  "approval_decisions": [
+    {
+      "approval_id": "APPROVAL-001",
+      "scope": "SUBSTITUTION",
+      "subject_id": "SUB-ORDER-001-COMPONENT-CONTROL-ALTERNATIVE-CONTROL",
+      "decision": "APPROVE",
+      "actor_id": "PERSON-ENGINEERING",
+      "actor_type": "HUMAN",
+      "role": "ENGINEERING_APPROVER",
+      "decided_at": "2026-11-16T09:15:00+08:00",
+      "max_source_qty": 36,
+      "comment": "Synthetic example approval for this order and quantity.",
+      "evidence_ref": "example://approvals/APPROVAL-001"
+    },
+    {
+      "approval_id": "APPROVAL-002",
+      "scope": "SUBSTITUTION",
+      "subject_id": "SUB-ORDER-001-COMPONENT-CONTROL-ALTERNATIVE-CONTROL",
+      "decision": "APPROVE",
+      "actor_id": "PERSON-QUALITY",
+      "actor_type": "HUMAN",
+      "role": "QUALITY_APPROVER",
+      "decided_at": "2026-11-16T09:15:00+08:00",
+      "max_source_qty": 36,
+      "comment": "Synthetic example approval for this order and quantity.",
+      "evidence_ref": "example://approvals/APPROVAL-002"
+    },
+    {
+      "approval_id": "APPROVAL-003",
+      "scope": "SUBSTITUTION",
+      "subject_id": "SUB-ORDER-001-COMPONENT-POWER-ALTERNATIVE-POWER",
+      "decision": "APPROVE",
+      "actor_id": "PERSON-ENGINEERING",
+      "actor_type": "HUMAN",
+      "role": "ENGINEERING_APPROVER",
+      "decided_at": "2026-11-16T09:15:00+08:00",
+      "max_source_qty": 20,
+      "comment": "Synthetic example approval for this order and quantity.",
+      "evidence_ref": "example://approvals/APPROVAL-003"
+    },
+    {
+      "approval_id": "APPROVAL-004",
+      "scope": "SUBSTITUTION",
+      "subject_id": "SUB-ORDER-001-COMPONENT-POWER-ALTERNATIVE-POWER",
+      "decision": "APPROVE",
+      "actor_id": "EXAMPLE-SERVICE",
+      "actor_type": "SERVICE",
+      "role": "QUALITY_APPROVER",
+      "decided_at": "2026-11-16T09:15:00+08:00",
+      "max_source_qty": 20,
+      "comment": "Synthetic example approval for this order and quantity.",
+      "evidence_ref": "example://approvals/APPROVAL-004"
+    }
+  ],
+  "suppliers": [
+    {
+      "supplier_id": "SUPPLIER-A",
+      "supplier_name": "Example Supplier A",
+      "qualification_status": "APPROVED",
+      "valid_until": "2026-12-31",
+      "on_time_delivery_rate": 96,
+      "quality_pass_rate": 99,
+      "service_score": 90
+    },
+    {
+      "supplier_id": "SUPPLIER-B",
+      "supplier_name": "Example Supplier B",
+      "qualification_status": "APPROVED",
+      "valid_until": "2026-12-31",
+      "on_time_delivery_rate": 96,
+      "quality_pass_rate": 99,
+      "service_score": 90
+    },
+    {
+      "supplier_id": "SUPPLIER-C",
+      "supplier_name": "Example Supplier C",
+      "qualification_status": "APPROVED",
+      "valid_until": "2026-10-31",
+      "on_time_delivery_rate": 96,
+      "quality_pass_rate": 99,
+      "service_score": 90
+    }
+  ],
+  "supplier_quotes": [
+    {
+      "quote_id": "QUOTE-POWER-A",
+      "supplier_id": "SUPPLIER-A",
+      "material_id": "COMPONENT-POWER",
+      "currency": "CNY",
+      "unit_price": 25,
+      "minimum_order_qty": 30,
+      "order_multiple": 10,
+      "capacity_qty": 500,
+      "lead_time_days": 5,
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "tax_included": true,
+      "freight_included": true,
+      "source_ref": "example://quotes/QUOTE-POWER-A"
+    },
+    {
+      "quote_id": "QUOTE-POWER-B",
+      "supplier_id": "SUPPLIER-B",
+      "material_id": "COMPONENT-POWER",
+      "currency": "CNY",
+      "unit_price": 24,
+      "minimum_order_qty": 30,
+      "order_multiple": 10,
+      "capacity_qty": 500,
+      "lead_time_days": 12,
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "tax_included": true,
+      "freight_included": true,
+      "source_ref": "example://quotes/QUOTE-POWER-B"
+    },
+    {
+      "quote_id": "QUOTE-POWER-C",
+      "supplier_id": "SUPPLIER-C",
+      "material_id": "COMPONENT-POWER",
+      "currency": "CNY",
+      "unit_price": 20,
+      "minimum_order_qty": 10,
+      "order_multiple": 10,
+      "capacity_qty": 500,
+      "lead_time_days": 3,
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "tax_included": true,
+      "freight_included": true,
+      "source_ref": "example://quotes/QUOTE-POWER-C"
+    },
+    {
+      "quote_id": "QUOTE-GASKET-B",
+      "supplier_id": "SUPPLIER-B",
+      "material_id": "COMPONENT-GASKET",
+      "currency": "CNY",
+      "unit_price": 2.5,
+      "minimum_order_qty": 40,
+      "order_multiple": 20,
+      "capacity_qty": 500,
+      "lead_time_days": 4,
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "tax_included": true,
+      "freight_included": true,
+      "source_ref": "example://quotes/QUOTE-GASKET-B"
+    },
+    {
+      "quote_id": "QUOTE-GASKET-NET",
+      "supplier_id": "SUPPLIER-A",
+      "material_id": "COMPONENT-GASKET",
+      "currency": "CNY",
+      "unit_price": 2,
+      "minimum_order_qty": 10,
+      "order_multiple": 10,
+      "capacity_qty": 500,
+      "lead_time_days": 4,
+      "valid_from": "2026-11-01",
+      "valid_to": "2026-11-30",
+      "tax_included": false,
+      "freight_included": true,
+      "source_ref": "example://quotes/QUOTE-GASKET-NET"
+    }
+  ]
+}

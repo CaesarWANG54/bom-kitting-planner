@@ -1,0 +1,138 @@
+{
+  "schema_version": "1.0.0",
+  "config_version": "example-1",
+  "organization": {
+    "organization_id": "ORG-EXAMPLE",
+    "organization_name": "Example Manufacturing",
+    "timezone": "Asia/Shanghai"
+  },
+  "runtime": {
+    "as_of_date": "2026-11-16",
+    "generated_at": "2026-11-16T10:00:00+08:00",
+    "external_side_effects_enabled": false
+  },
+  "planning": {
+    "material_need_offset_days": 7,
+    "allowed_warehouses": [
+      "WAREHOUSE-001"
+    ],
+    "eligible_inbound_statuses": [
+      "CONFIRMED",
+      "SHIPPED"
+    ],
+    "max_snapshot_age_hours": 24,
+    "calendar_mode": "CALENDAR_DAYS"
+  },
+  "quantity": {
+    "calculation_precision": 6,
+    "discrete_rounding": "CEILING",
+    "supported_uoms": [
+      "PCS"
+    ]
+  },
+  "substitution": {
+    "mode": "SUGGEST_AND_APPLY_ONLY_AFTER_HUMAN_APPROVAL",
+    "default_required_approval_roles": [
+      "ENGINEERING_APPROVER",
+      "QUALITY_APPROVER"
+    ],
+    "require_comment": true,
+    "require_evidence_ref": true,
+    "service_actor_decisions_are_invalid": true
+  },
+  "supplier_scoring": {
+    "allowed_currencies": [
+      "CNY"
+    ],
+    "weights": {
+      "price": 0.4,
+      "delivery": 0.25,
+      "quality": 0.25,
+      "service": 0.1
+    },
+    "late_day_penalty": 10,
+    "minimum_quality_pass_rate": 95,
+    "minimum_on_time_delivery_rate": 85
+  },
+  "risk": {
+    "thresholds": {
+      "amber": 40,
+      "red": 70
+    },
+    "factor_points": {
+      "hard_shortage": 40,
+      "criticality_A": 20,
+      "criticality_B": 10,
+      "pending_substitution": 10,
+      "late_inbound": 10,
+      "no_eligible_quote": 30,
+      "low_supplier_otd": 10,
+      "selected_quote_late_per_day": 8,
+      "selected_quote_late_cap": 24
+    }
+  },
+  "procurement": {
+    "document_type": "PURCHASE_REQUISITION_DRAFT",
+    "draft_only": true,
+    "major_purchase_threshold_cny": 2000,
+    "major_material_criticalities": [
+      "A"
+    ],
+    "major_required_approval_roles": [
+      "PROCUREMENT_MANAGER",
+      "FINANCE_APPROVER"
+    ],
+    "requester_cannot_approve_own_major_purchase": true
+  },
+  "iqc": {
+    "default_inventory_state": "QUARANTINE",
+    "inspection_classes": {
+      "A": {
+        "sampling_plan": "EXAMPLE_PLAN_A",
+        "required_documents": [
+          "INSPECTION_RECORD"
+        ],
+        "inspection_items": [
+          "IDENTITY",
+          "DIMENSION",
+          "FUNCTION"
+        ]
+      },
+      "B": {
+        "sampling_plan": "EXAMPLE_PLAN_B",
+        "required_documents": [
+          "INSPECTION_RECORD"
+        ],
+        "inspection_items": [
+          "IDENTITY",
+          "APPEARANCE"
+        ]
+      },
+      "C": {
+        "sampling_plan": "EXAMPLE_PLAN_C",
+        "required_documents": [
+          "INSPECTION_RECORD"
+        ],
+        "inspection_items": [
+          "IDENTITY",
+          "APPEARANCE"
+        ]
+      }
+    }
+  },
+  "adapters": {
+    "erp": "disabled",
+    "wms": "disabled",
+    "srm": "disabled",
+    "qms": "disabled",
+    "email": "disabled"
+  },
+  "protected_invariants": {
+    "auto_create_purchase_order": false,
+    "auto_release_purchase_order": false,
+    "auto_send_purchase_order": false,
+    "auto_approve_substitution": false,
+    "auto_approve_major_purchase": false,
+    "auto_release_iqc_inventory": false
+  }
+}
